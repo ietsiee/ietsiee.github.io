@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>Ietsiee</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #000;
+      color: #ddd;
+      font: 14px monospace;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    main {
+      width: 90%;
+      max-width: 400px;
+      margin: 60px auto;
+      padding-bottom: 30px;
+    }
+
+    img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 1px solid #222;
+    }
+
+    h1 {
+      color: #fff;
+      margin: 16px 0 0;
+      font-size: 26px;
+    }
+
+    .username {
+      color: #777;
+      margin: 2px 0 30px;
+    }
+
+    nav,
+    .donations {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    a,
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: #080808;
+      color: #ccc;
+      border: 1px solid #222;
+      border-radius: 4px;
+      font: inherit;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    a:hover,
+    button:hover {
+      background: #161616;
+      color: #fff;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid #888;
+      outline-offset: 3px;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .address {
+      margin: 8px 0 22px;
+      padding: 0 4px;
+      color: #888;
+      font-size: 12px;
+      overflow-wrap: anywhere;
+      user-select: all;
+    }
+
+    .back {
+      margin-top: 12px;
+    }
+
+    #status {
+      min-height: 22px;
+      margin-top: 16px;
+      color: #aaa;
+      font-size: 12px;
+    }
+
+    footer {
+      margin-top: 35px;
+      color: #444;
+      font-size: 11px;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section id="profile" class="page active">
+      <img src="Profile.png" alt="Ietsiee profile picture">
+
+      <h1>Ietsiee</h1>
+      <p class="username">@ietsiee</p>
+
+      <nav aria-label="Social links">
+        <a
+          href="https://youtube.com/@ietsiee"
+          target="_blank"
+          rel="noopener noreferrer"
+        >YouTube</a>
+
+        <a
+          href="https://tiktok.com/@ietsiee"
+          target="_blank"
+          rel="noopener noreferrer"
+        >TikTok</a>
+
+        <a
+          href="https://github.com/ietsiee"
+          target="_blank"
+          rel="noopener noreferrer"
+        >GitHub</a>
+
+        <a
+          href="https://reddit.com/u/Ietsiee"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Reddit</a>
+
+        <a
+          href="https://discord.com/users/1532083273759461478"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Discord</a>
+
+        <a
+          href="https://twitch.tv/ietsiee"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Twitch</a>
+
+        <a
+          href="https://x.com/ietsiee"
+          target="_blank"
+          rel="noopener noreferrer"
+        >X</a>
+
+        <button
+          type="button"
+          onclick="showPage('other-socials')"
+        >Other Social Media</button>
+
+        <button
+          type="button"
+          onclick="showPage('donate')"
+        >Donate</button>
+      </nav>
+    </section>
+
+    <section id="other-socials" class="page">
+      <h1>Other Social Media</h1>
+      <p class="username">@ietsiee</p>
+
+      <nav aria-label="Other social media links">
+        <a
+          href="https://www.deviantart.com/ietsiee"
+          target="_blank"
+          rel="noopener noreferrer"
+        >DeviantArt</a>
+
+        <a
+          href="https://news.ycombinator.com/user?id=ietsiee"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Hacker News</a>
+
+        <button
+          type="button"
+          class="back"
+          onclick="showPage('profile')"
+        >Back</button>
+      </nav>
+    </section>
+
+    <section id="donate" class="page">
+      <h1>Donate</h1>
+      <p class="username">@ietsiee</p>
+
+      <div class="donations">
+        <div>
+          <button
+            type="button"
+            onclick="copyAddress('bc1q5cz2f8x9uj2whzjqgz7jy2j9tyzpyxefghzwyl')"
+          >Bitcoin (BTC) - Copy Address</button>
+
+          <p class="address">bc1q5cz2f8x9uj2whzjqgz7jy2j9tyzpyxefghzwyl</p>
+        </div>
+
+        <div>
+          <button
+            type="button"
+            onclick="copyAddress('0xFB669a918cB7B52BA274995c08b680E1097f2415')"
+          >Ethereum (ETH) - Copy Address</button>
+
+          <p class="address">0xFB669a918cB7B52BA274995c08b680E1097f2415</p>
+        </div>
+
+        <div>
+          <button
+            type="button"
+            onclick="copyAddress('7CsyDC7QUKMdbCpU477wYAsYyQDJeyjr3TpLnccC6Ujx')"
+          >Solana (SOL) - Copy Address</button>
+
+          <p class="address">7CsyDC7QUKMdbCpU477wYAsYyQDJeyjr3TpLnccC6Ujx</p>
+        </div>
+
+        <button
+          type="button"
+          class="back"
+          onclick="showPage('profile')"
+        >Back</button>
+      </div>
+
+      <p id="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <footer>
+      &copy; <span id="year"></span> Ietsiee
+    </footer>
+  </main>
+
+  <script>
+    function showPage(page) {
+      document.querySelectorAll('.page').forEach(section => {
+        section.classList.remove('active');
+      });
+
+      const target = document.getElementById(page);
+
+      if (target) {
+        target.classList.add('active');
+      }
+
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    async function copyAddress(address) {
+      const status = document.getElementById('status');
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(address);
+        } else {
+          const textarea = document.createElement('textarea');
+
+          textarea.value = address;
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+
+          document.body.appendChild(textarea);
+          textarea.select();
+
+          const copied = document.execCommand('copy');
+          textarea.remove();
+
+          if (!copied) {
+            throw new Error('Copy failed');
+          }
+        }
+
+        status.textContent = 'Address copied successfully!';
+      } catch (error) {
+        status.textContent =
+          'Copy failed! Select and copy the address manually.';
+      }
+    }
+
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
